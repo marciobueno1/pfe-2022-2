@@ -1,12 +1,12 @@
-let contador = 0;
+import React from "react";
+
 export const Contador = ({ txt }) => {
+  let [contador, setContador] = React.useState(0);
   const handleClickMais = () => {
-    contador += 1;
-    console.log(contador);
+    setContador((contadorAtual) => contadorAtual + 1);
   };
   const handleClickMenos = () => {
-    contador -= 1;
-    console.log(contador);
+    setContador(contador - 1);
   };
   return (
     <div>

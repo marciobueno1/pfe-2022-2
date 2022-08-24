@@ -6,15 +6,19 @@ export const Contador = ({ txt }) => {
     setContador((contadorAtual) => contadorAtual + 1);
   };
   const handleClickMenos = () => {
-    setContador(contador - 1);
+    if (contador > 0) {
+      setContador(contador - 1);
+    }
   };
   return (
     <div>
-      <h1>
+      <h3>
         {txt} - {contador}
-      </h1>
+      </h3>
+      <button onClick={handleClickMenos} disabled={contador <= 0}>
+        -
+      </button>
       <button onClick={handleClickMais}>+</button>
-      <button onClick={handleClickMenos}>-</button>
     </div>
   );
 };

@@ -38,3 +38,8 @@
 .read-the-docs {
   color: #888;
 }
+
+table {
+  border-width: 1px;
+  border-color: white;
+}

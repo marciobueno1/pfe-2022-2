@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 
+function getVowels(str) {
+  var m = str.match(/[aáàãâeéêiíoóõôuú]/gi);
+  return m === null ? 0 : m.length;
+}
+
+function getConsonants(str) {
+  var m = str.match(/[bcçdfghjklmnpqrstvwxyz]/gi);
+  return m === null ? 0 : m.length;
+}
+
 function App() {
   const [textos, setTextos] = useState([]);
   const [texto, setTexto] = useState("");
@@ -25,10 +35,22 @@ function App() {
         />{" "}
         <button onClick={handleClickBtInserir}>Inserir</button>
       </p>
-      <ol>
-        {textos.length > 0 &&
-          textos.map((umTexto, index) => <li key={index}>{umTexto}</li>)}
-      </ol>
+      {textos.length > 0 && (
+        <table>
+          <tr>
+            <th>Texto</th>
+            <th>Vogais</th>
+            <th>Consoantes</th>
+          </tr>
+          {textos.map((umTexto, index) => (
+            <tr key={index}>
+              <td>{umTexto}</td>
+              <td>{getVowels(umTexto)}</td>
+              <td>{getConsonants(umTexto)}</td>
+            </tr>
+          ))}
+        </table>
+      )}
     </div>
   );
 }

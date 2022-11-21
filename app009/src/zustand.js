@@ -9,6 +9,10 @@ export const useBearStore = create(
       increasePopulationBy: (amount) =>
         set((state) => ({ bears: state.bears + amount })),
       removeAllBears: () => set({ bears: 0 }),
+
+      mode: "dark",
+      toggleMode: () =>
+        set((state) => ({ mode: state.mode === "dark" ? "light" : "dark" })),
     }),
     {
       name: "bear-storage", // unique name
